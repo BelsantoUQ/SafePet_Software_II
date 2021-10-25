@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="col-sm-6">
+        <form th:action="@{/save}" th:object="${afiliado}" method="POST">
+        <div class="card">
+            <div class="card-header-">
+                <h3>Modulo Afiliado</h3>
+            </div>
+            <div class="card-body-">
+                <div class="form-group">
+                    <label>NOMBRE</label>
+                    <input th:field="*{nombre}" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>CORREO ELECTRONICO</label>
+                    <input th:field="*{email}" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>CONTRASEÑA</label>
+                    <input th:field="*{password}" type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="card-footer-">
+                <input type="submit" value="Guardar" class="btn btn-success">
+                </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
