@@ -22,7 +22,8 @@ public class PersonaService implements IpersonaService {
 
     @Override
     public Optional<Afiliado> listarId(int id) {
-        return Optional.empty();
+
+        return data.findById(id);
     }
 
     @Override
@@ -37,6 +38,6 @@ public class PersonaService implements IpersonaService {
 
     @Override
     public void delete(int id) {
-
+        data.deleteById(id);
     }
 }
