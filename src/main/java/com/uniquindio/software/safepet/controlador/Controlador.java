@@ -38,7 +38,7 @@ public class Controlador {
         model.addAttribute("afiliado",new Afiliado());
         return "formAfiliado";
     }
-    @RequestMapping(value = "/saveAfiliado/{codigo}", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveAfiliado", method = RequestMethod.POST)
     public String saveAfiliado(@Valid Afiliado afiliado, Model model){
         serviceAfiliado.save(afiliado);
         return "redirect:/listarAfiliado";

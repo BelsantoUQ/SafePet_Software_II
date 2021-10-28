@@ -16,6 +16,12 @@ public class PersonaService implements IpersonaService {
     private IPersona data;
 
     @Override
+    public Optional<Afiliado> validar(String email, String password) {
+
+        return data.findByEmailAndAndPassword(email,password);
+    }
+
+    @Override
     public List<Afiliado> listar() {
         return (List<Afiliado>) data.findAll();
     }
