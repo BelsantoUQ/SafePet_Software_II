@@ -1,32 +1,58 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Afiliados SafePet</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
+<header> <br><br>
+
+
+    <div th:if="${error!=null}" class="alert alert-warning alert-dismissable">
+        <label th:text="${error}"></label>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
+    </div>
+    <div th:if="${info!=null}" class="alert alert-info alert-dismissable">
+        <label th:text="${info}"></label>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Hola!</strong> Que tengas buen día.
+    </div>
+</header>
 <body>
-<div class="container mt-6">
+<div class="container mt-9">
     <h1 class="bg-success">Bienvenidos
-        <small class="color3"> <br>Lista de Afiliados</small></h1>
+        <small class="color3"> <br>Servicios para usuarios y clientes</small></h1>
 </div>
 
 
 <div class="container mt-4">
-
-    <a th:href="@{/newAfiliado}" class="btn btn-info">Nuevo</a>
     <br><br>
-    <form th:action="@{/newAfiliado}" class="form-inline" method="get">
-        <input class="form-control mr-sm-2" type="search" name="codigoBuscar" placeholder="Search" aria-label="Search">
+    <form th:action="@{/contratos}" class="form-inline" method="get">
+        <input class="form-control mr-sm-2" type="search" name="codigo" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     <br><br>
     <table class="table">
-
-
-        <tr th:each="afiliado:${afiliados}">
-
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>CODIGO CLIENTE</td>
+            <td>CODIGO PLAN</td>
+            <td>TIPO DE PAGO</td>
         </tr>
+        </thead>
+        <tbody>
+        <tr th:each="comprobante:${comprobantes}">
+            <td th:text="${comprobante.codigo}"></td>
+            <td th:text="${comprobante.clienteAtencion.nombre}"></td>
+            <td th:text="${comprobante.planContratado.costoTotal}"></td>
+            <td th:text="${comprobante.medio_de_pago}"></td>
+            <td>
+                <a th:href="@{/visitarComprobante/}+${comprobante.codigo}" class="btn btn-success">VER</a>
+            </td>
+        </tr>
+        </tbody>
     </table>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

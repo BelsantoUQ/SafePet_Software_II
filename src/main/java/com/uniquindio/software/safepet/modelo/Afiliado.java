@@ -15,16 +15,16 @@ import java.util.Map;
 @ToString(callSuper = true)
 public class Afiliado extends Persona implements Serializable {
 
-    @ElementCollection
-    @Column(nullable = false)
-    private Map<String,String> num_telefono;
+
+    @Column(nullable = false, length = 100)
+    private String num_telefono;
 
     @ElementCollection
     @Column(nullable = false)
     private Map<String,String> beneficiario_mascota;
 
     public Afiliado(String nombre, String email, String password,
-                    Map<String, String> num_telefono, Map<String, String> beneficiario_mascota) {
+                    String num_telefono, Map<String, String> beneficiario_mascota) {
         super(nombre, email, password);
         this.num_telefono = num_telefono;
         this.beneficiario_mascota = beneficiario_mascota;

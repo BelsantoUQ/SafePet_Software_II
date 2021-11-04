@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Asociado SafePet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="col-sm-6">
+        <form th:object="${comprobante}" method="POST">
+            <div class="card">
+                <div class="card-header-">
+                    <h3>MODULO CLIENTES</h3>
+                </div>
+                <div class="card-body-">
+                    <div class="form-group">
+                        <label>CODIGO</label>
+                        <input th:field="*{codigo}" type="text" class="form-control"  readonly="readonly"/>
+                    </div>
+                    <div class="form-group">
+                        <label>NOMBRE CLIENTE</label>
+                        <input th:field="*{clienteAtencion.nombre}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>COSTO ANUAL DEL PLAN</label>
+                        <input th:field="*{planContratado.costoTotal}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>MEDIO DE PAGO</label>
+                        <input th:field="*{medio_de_pago}" type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="card-footer-">
+
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
