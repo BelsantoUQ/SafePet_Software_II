@@ -19,7 +19,7 @@ public class Plan implements Serializable {
     @EqualsAndHashCode.Include
     private Integer codigo;
 
-    @OneToMany(mappedBy = "planActual")
+    @ManyToMany(mappedBy = "planActual")
     @ToString.Exclude
     private List<Servicio> servicios;
 

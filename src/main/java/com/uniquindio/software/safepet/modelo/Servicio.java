@@ -32,8 +32,8 @@ public class Servicio implements Serializable {
     @Column(nullable = false)
     private double copago;
 
-    @ManyToOne
-    private Plan planActual;
+    @ManyToMany
+    private List<Plan> planActual;
 
     @OneToMany(mappedBy = "servicioContratado")
     @ToString.Exclude

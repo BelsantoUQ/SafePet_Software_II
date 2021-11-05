@@ -37,6 +37,7 @@
     <tr>
         <td>ID</td>
         <td>NOMBRE</td>
+        <td>TELEFONO</td>
         <td>EMAIL</td>
         <td>PASSWORD</td>
     </tr>
@@ -45,6 +46,7 @@
     <tr th:each="afiliado:${afiliados}">
         <td th:text="${afiliado.codigo}"></td>
         <td th:text="${afiliado.nombre}"></td>
+        <td th:text="${afiliado.num_telefono}"></td>
         <td th:text="${afiliado.email}"></td>
         <td th:text="${afiliado.password}"></td>
         <td>

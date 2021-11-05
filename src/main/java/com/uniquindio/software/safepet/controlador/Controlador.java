@@ -144,7 +144,7 @@ public class Controlador {
 
 
     @RequestMapping(value = "/visitarComprobante/{codigo}", method = RequestMethod.GET)
-    public String editarComprobante(@PathVariable int codigo, Model model) {
+    public String visitarComprobante(@PathVariable int codigo, Model model) {
         Optional<Comprobante> comprobante = serviceComprobante.listarId(codigo);
         if (!comprobante.isEmpty()){
 
