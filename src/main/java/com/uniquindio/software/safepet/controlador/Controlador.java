@@ -1,13 +1,7 @@
 package com.uniquindio.software.safepet.controlador;
 
-import com.uniquindio.software.safepet.interfaceService.IcomprobanteService;
-import com.uniquindio.software.safepet.interfaceService.IpersonaService;
-import com.uniquindio.software.safepet.interfaceService.IplanService;
-import com.uniquindio.software.safepet.interfaceService.IveterinatiaService;
-import com.uniquindio.software.safepet.modelo.Afiliado;
-import com.uniquindio.software.safepet.modelo.Comprobante;
-import com.uniquindio.software.safepet.modelo.Plan;
-import com.uniquindio.software.safepet.modelo.Veterinaria;
+import com.uniquindio.software.safepet.interfaceService.*;
+import com.uniquindio.software.safepet.modelo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +26,9 @@ public class Controlador {
 
     @Autowired
     private IplanService servicePlan;
+
+    @Autowired
+    private IservicioService serviceServicio;
 
 
     //AFILIADOS
@@ -149,12 +146,26 @@ public class Controlador {
         if (!comprobante.isEmpty()){
 
             model.addAttribute("comprobante", comprobante.get());
-            Afiliado afiliado = comprobante.get().getClienteAtencion();
-            Plan plan = comprobante.get().getPlanContratado();
+
         }
 
         return "formCliente";
     }
 
 
+
+
+    ///Servicios
+    @GetMapping("/listarServicios/{codigo}")
+    public String mostrarServicios(RedirectAttributes atributo,
+                                Model model, @PathVariable int codigo) {
+
+        Optional<Plan> plan = servicePlan.listarId(codigo);
+
+        if (!plan.isEmpty()) {
+            List<Servicio> servicios = serviceServicio.listarPorPlan(plan.get());
+            model.addAttribute("servicios", servicios);
+        }
+        return "indexServicios";
+    }
 }

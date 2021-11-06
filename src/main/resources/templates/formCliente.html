@@ -26,7 +26,10 @@
                     <div class="form-group">
                         <label>COSTO ANUAL DEL PLAN</label>
                         <input th:field="*{planContratado.costoTotal}" type="text" class="form-control"/>
-                    </div>
+                    </div><div class="form-group">
+                    <label>NUMERO DE BENEFICIARIOS</label>
+                    <input th:field="*{planContratado.numeroBeneficiarios}" type="text" class="form-control"/>
+                </div>
                     <div class="form-group">
                         <label>MEDIO DE PAGO</label>
                         <input th:field="*{medio_de_pago}" type="text" class="form-control"/>
@@ -34,7 +37,21 @@
                 </div>
                 <div class="card-footer-">
 
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-auto">
 
+                                <a th:href="@{/listarServicios/}+*{planContratado.codigo}" class="btn btn-success">SERVICIOS</a>
+
+                            </div>
+                            <div class="col-md-auto">
+
+                                <a th:href="@{/visitarMascotas/}+*{planContratado.codigo}" class="btn btn-info">BENEFICIARIOS</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
                 </div>
             </div>
         </form>
@@ -43,16 +60,7 @@
 </div>
 <br>
 <br>
-<div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col col-lg-8">AQUI LISTA SERVICIOS</div>
 
-
-        <div class="col-md-auto">AQUI LISTA MACOTAS</div>
-
-        <div class="w-100"></div>
-    </div>
-</div>
 
 </body>
 </html>
