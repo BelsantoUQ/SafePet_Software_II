@@ -21,7 +21,7 @@ body{
 }
 
 .user-img img{
-    width: 100xp;
+    width: 100px;
     height: 100px;
     box-shadow: 0px 0px 3px #848484;
     border-radius: 50%;
@@ -44,11 +44,11 @@ body{
 }
 
 .form-group#user-group::before{
-    content: "\f007";
+    content: "\f2bb";
 }
 
-.form-group#contrasena-group::before{
-    content: "\f023";
+.form-group#nurse-group::before{
+    content: "\f0f0";
 }
 
 button{

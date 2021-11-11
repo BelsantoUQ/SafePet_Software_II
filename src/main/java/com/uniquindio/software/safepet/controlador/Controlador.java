@@ -105,7 +105,7 @@ public class Controlador {
     public String verveterinarias(Model model) {
         List<Veterinaria> veterinarias = serviceVeterinaria.listar();
         model.addAttribute("veterinarias", veterinarias);
-        return "indexVeterinarios";
+        return "vistaVeterinaria";
     }
 
     @RequestMapping(value = "/newVeterinaria", method = RequestMethod.GET)
