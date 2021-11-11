@@ -5,13 +5,14 @@
     <title>SafePet</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<header> <br><br>
+<header>
+    <br><br>
 
 </header>
 <body>
 <div class="container mt-9">
     <h1 class="bg-success">Bienvenidos
-        <small class="color3"> <br>Lista de Servicios</small></h1>
+        <small class="color3"> <br>Lista de Beneficiarios/Mascotas</small></h1>
 </div>
 
 
@@ -25,20 +26,20 @@
     <table class="table">
         <thead>
         <tr>
-            <td>ID</td>
-            <td>NOMBRE</td>
-            <td>CALIFICACION</td>
-            <td>COSTO</td>
-            <td>COPAGO</td>
+            <td>NOMBRE AFILIADO</td>
+            <td>NOMBRE MASCOTA</td>
+            <td>RAZA</td>
+            <td>ESPECIE</td>
+            <td>CODIGO</td>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="servicio:${servicios}">
-            <td th:text="${servicio.codigo}"></td>
-            <td th:text="${servicio.nombre}"></td>
-            <td th:text="${servicio.calificacion}"></td>
-            <td th:text="${servicio.costo_en_plan}"></td>
-            <td th:text="${servicio.copago}"></td>
+        <tr th:each="mascota:${mascotas}">
+            <td th:text="${mascota.beneficiario.nombre}"></td>
+            <td th:text="${mascota.nombre}"></td>
+            <td th:text="${mascota.raza}"></td>
+            <td th:text="${mascota.especie}"></td>
+            <td th:text="${mascota.codigo}"></td>
         </tr>
         </tbody>
     </table>

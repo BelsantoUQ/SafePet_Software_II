@@ -23,7 +23,13 @@ public class Veterinaria implements Serializable {
     @Column(nullable = false, length = 100)
     private String nombre;
 
+    @Column(unique = true, nullable = false, length = 100)
+    private String nit;
+
     @Column(nullable = false, length = 100)
+    private String password;
+
+    @Column(unique = true, nullable = false, length = 100)
     private String direccion;
 
     @Column(nullable = false, length = 100)

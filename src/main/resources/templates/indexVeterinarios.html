@@ -23,6 +23,8 @@
                 <td>NOMBRE</td>
                 <td>DIRECCION</td>
                 <td>HORARIOS</td>
+                <td>NIT</td>
+                <td>CONTRASEÑA</td>
             </tr>
             </thead>
             <tbody>
@@ -31,6 +33,9 @@
                 <td th:text="${veterinaria.nombre}"></td>
                 <td th:text="${veterinaria.direccion}"></td>
                 <td th:text="${veterinaria.horarioAtencion}"></td>
+                <td th:text="${veterinaria.nit}"></td>
+                <td th:text="${veterinaria.password}"></td>
+
                 <td>
                     <a th:href="@{/editarVeterinaria/}+${veterinaria.codigo}" class="btn btn-warning">Editar</a>
                     <a th:onclick="eliminarVeterinaria([[${veterinaria.codigo}]])" class="btn btn-danger">Eliminar</a>

@@ -16,24 +16,30 @@
                 </div>
                 <div class="card-body-">
                     <div class="form-group">
+
                         <label>CODIGO</label>
-                        <input th:field="*{codigo}" type="text" class="form-control"  readonly="readonly"/>
+                        <input th:field="*{codigo}" type="text" readonly class="form-control-plaintext"/>
                     </div>
+
                     <div class="form-group">
                         <label>NOMBRE CLIENTE</label>
-                        <input th:field="*{clienteAtencion.nombre}" type="text" class="form-control"/>
+                        <input th:field="*{clienteAtencion.nombre}" type="text" readonly class="form-control-plaintext"/>
                     </div>
+
                     <div class="form-group">
                         <label>COSTO ANUAL DEL PLAN</label>
-                        <input th:field="*{planContratado.costoTotal}" type="text" class="form-control"/>
-                    </div><div class="form-group">
-                    <label>NUMERO DE BENEFICIARIOS</label>
-                    <input th:field="*{planContratado.numeroBeneficiarios}" type="text" class="form-control"/>
-                </div>
+                        <input th:field="*{planContratado.costoTotal}" type="text" readonly class="form-control-plaintext"/>
+                    </div>
+                    <div class="form-group">
+                        <label>NUMERO DE BENEFICIARIOS</label>
+                        <input th:field="*{planContratado.numeroBeneficiarios}" type="text" readonly class="form-control-plaintext"/>
+                    </div>
+
                     <div class="form-group">
                         <label>MEDIO DE PAGO</label>
-                        <input th:field="*{medio_de_pago}" type="text" class="form-control"/>
+                        <input th:field="*{medio_de_pago}" type="text" readonly class="form-control-plaintext"/>
                     </div>
+
                 </div>
                 <div class="card-footer-">
 
@@ -46,7 +52,15 @@
                             </div>
                             <div class="col-md-auto">
 
-                                <a th:href="@{/visitarMascotas/}+*{planContratado.codigo}" class="btn btn-info">BENEFICIARIOS</a>
+                                <a th:href="@{/listarMascotas/}+*{clienteAtencion.codigo}" class="btn btn-info">BENEFICIARIOS</a>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-auto">
+
+                                <a th:href="@{/listarHistoriales/}+*{clienteAtencion.codigo}" class="btn-outline-primary">HISTORIAL DE CONSULTAS</a>
 
                             </div>
                         </div>

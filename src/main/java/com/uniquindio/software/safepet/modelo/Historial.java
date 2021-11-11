@@ -27,13 +27,13 @@ public class Historial implements Serializable {
     @ManyToOne
     private Servicio servicioContratado;
 
-    @Column(nullable = false, length = 100)
-    private String nombreMascota;
+    @ManyToOne
+    @ToString.Exclude
+    private Beneficiario mascotaConsulta;
 
     public Historial(Veterinaria veterinariaAsociada, Afiliado clienteAsociado, Servicio servicioContratado, String nombreMascota) {
         this.veterinariaAsociada = veterinariaAsociada;
         this.clienteAsociado = clienteAsociado;
         this.servicioContratado = servicioContratado;
-        this.nombreMascota = nombreMascota;
     }
 }

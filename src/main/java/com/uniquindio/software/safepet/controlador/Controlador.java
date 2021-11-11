@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -30,6 +31,17 @@ public class Controlador {
     @Autowired
     private IservicioService serviceServicio;
 
+    @Autowired
+    private IbeneficiarioService serviceMascota;
+
+    @Autowired
+    private IhistorialService serviceHistorial;
+
+
+    @GetMapping({"/"})
+    public String index() {
+        return "index";
+    }
 
     //AFILIADOS
 
@@ -84,6 +96,13 @@ public class Controlador {
 
     @RequestMapping(value = "/listarVeterinaria", method = RequestMethod.GET)
     public String listarveterinaria(Model model) {
+        List<Veterinaria> veterinarias = serviceVeterinaria.listar();
+        model.addAttribute("veterinarias", veterinarias);
+        return "indexVeterinarios";
+    }
+
+    @RequestMapping(value = "/visitarVeterinaria", method = RequestMethod.GET)
+    public String verveterinarias(Model model) {
         List<Veterinaria> veterinarias = serviceVeterinaria.listar();
         model.addAttribute("veterinarias", veterinarias);
         return "indexVeterinarios";
@@ -158,7 +177,7 @@ public class Controlador {
     ///Servicios
     @GetMapping("/listarServicios/{codigo}")
     public String mostrarServicios(RedirectAttributes atributo,
-                                Model model, @PathVariable int codigo) {
+                                   Model model, @PathVariable int codigo) {
 
         Optional<Plan> plan = servicePlan.listarId(codigo);
 
@@ -168,4 +187,33 @@ public class Controlador {
         }
         return "indexServicios";
     }
+
+    ///Mascotas
+    @GetMapping("/listarMascotas/{codigo}")
+    public String mostrarMascotas(RedirectAttributes atributo,
+                                  Model model, @PathVariable int codigo) {
+
+        Optional<Afiliado> afiliado = serviceAfiliado.listarId(codigo);
+
+        if (!afiliado.isEmpty()) {
+            List<Beneficiario> mascotas = (serviceMascota.listarPorAfiliado(afiliado.get()));
+            model.addAttribute("mascotas", mascotas);
+        }
+        return "indexMascotas";
+    }
+
+    ///Historiales
+    @GetMapping("/listarHistoriales/{codigo}")
+    public String mostrarHistorial(RedirectAttributes atributo,
+                                  Model model, @PathVariable int codigo) {
+
+        Optional<Afiliado> afiliado = serviceAfiliado.listarId(codigo);
+
+        if (!afiliado.isEmpty()) {
+            List<Historial> historiales = (serviceHistorial.listarPorAfiliado(afiliado.get()));
+            model.addAttribute("historiales", historiales);
+        }
+        return "indexHistorial";
+    }
+
 }

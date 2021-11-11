@@ -22,7 +22,7 @@ public class Persona implements Serializable {
     @Column(nullable = false, length = 100)
     private String nombre;
 
-    @Column(unique = true,nullable = false, length = 200)
+    @Column(unique = true, nullable = false, length = 200)
     private String email;
 
     @Column(nullable = false, length = 50)

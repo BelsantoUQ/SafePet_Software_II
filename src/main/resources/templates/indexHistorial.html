@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>SafePet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<header>
+    <br><br>
+
+</header>
+<body>
+<div class="container mt-9">
+    <h1 class="bg-success">Bienvenidos
+        <small class="color3"> <br>Historial de consultas</small></h1>
+</div>
+
+
+<div class="container mt-4">
+
+    <br><br>
+
+
+
+    <br><br>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>CODIGO</td>
+            <td>NOMBRE AFILIADO</td>
+            <td>SERVICIO CONTRATADO</td>
+            <td>VETERINARIA</td>
+            <td>NOMBRE MASCOTA</td>
+            <td>ESPECIE MASCOTA</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="historial:${historiales}">
+            <td th:text="${historial.codigo}"></td>
+            <td th:text="${historial.clienteAsociado.nombre}"></td>
+            <td th:text="${historial.servicioContratado.nombre}"></td>
+            <td th:text="${historial.veterinariaAsociada.nombre}"></td>
+            <td th:text="${historial.mascotaConsulta.nombre}"></td>
+            <td th:text="${historial.mascotaConsulta.especie}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

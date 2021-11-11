@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,15 +20,14 @@ public class Afiliado extends Persona implements Serializable {
     @Column(nullable = false, length = 100)
     private String num_telefono;
 
-    @ElementCollection
-    @Column(nullable = false)
-    private Map<String,String> beneficiario_mascota;
+    @OneToMany(mappedBy = "beneficiario")
+    @ToString.Exclude
+    private List<Beneficiario> mascotas;
 
     public Afiliado(String nombre, String email, String password,
-                    String num_telefono, Map<String, String> beneficiario_mascota) {
+                    String num_telefono) {
         super(nombre, email, password);
         this.num_telefono = num_telefono;
-        this.beneficiario_mascota = beneficiario_mascota;
     }
 
     @OneToMany(mappedBy = "clienteAsociado")
