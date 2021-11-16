@@ -37,7 +37,14 @@ public class PersonaService implements IpersonaService {
     }
 
     @Override
-    public void delete(int id) {
-        data.deleteById(id);
+    public boolean delete(int id) {
+
+        try {
+            data.deleteById(id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 }

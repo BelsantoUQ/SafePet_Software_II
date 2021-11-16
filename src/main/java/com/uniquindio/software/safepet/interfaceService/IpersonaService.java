@@ -11,5 +11,5 @@ public interface IpersonaService {
     public List<Afiliado> listar();
     public Optional<Afiliado> listarId(int id);
     public int save(Afiliado afiliado);
-    public void delete(int id);
+    public boolean delete(int id);
 }

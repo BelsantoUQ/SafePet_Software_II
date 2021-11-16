@@ -63,6 +63,7 @@ public class Controlador {
             model.addAttribute("afiliados", afiliados);
 
         }
+
         return "indexAfiliado";
     }
 
@@ -86,10 +87,9 @@ public class Controlador {
         return "formAfiliado";
     }
 
-    @RequestMapping(value = "/listarAfiliado/{codigo}", method = RequestMethod.GET)
-    public String deleteAfiliado(Model model, @PathVariable int codigo) {
-        serviceAfiliado.delete(codigo);
-        return "redirect:/listarAfiliado";
+    @RequestMapping(value = "/eliminarAfiliado/{codigo}", method = RequestMethod.GET)
+    public boolean deleteAfiliado(Model model, @PathVariable int codigo) {
+        return serviceAfiliado.delete(codigo);
     }
 
     //VETERINARIA
