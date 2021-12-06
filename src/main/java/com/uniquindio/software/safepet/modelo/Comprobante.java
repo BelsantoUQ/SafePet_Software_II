@@ -29,9 +29,9 @@ public class Comprobante implements Serializable {
     private Plan planContratado;
 
     @Column(nullable = false)
-    private MedioPago medio_de_pago;
+    private String medio_de_pago;
 
-    public Comprobante(Afiliado clienteAsociado, Plan planContratado, MedioPago medio_de_pago) {
+    public Comprobante(Afiliado clienteAsociado, Plan planContratado, String medio_de_pago) {
         this.clienteAtencion = clienteAsociado;
         this.planContratado = planContratado;
         this.medio_de_pago = medio_de_pago;

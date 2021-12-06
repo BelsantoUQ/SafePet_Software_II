@@ -12,7 +12,7 @@
 <body>
 <div class="container mt-9">
     <h1 class="bg-success">Bienvenidos
-        <small class="color3"> <br>Historial de consultas</small></h1>
+        <small class="color3"> <br>Historial de consultas y copagos</small></h1>
 </div>
 
 
@@ -29,6 +29,7 @@
             <td>CODIGO</td>
             <td>NOMBRE AFILIADO</td>
             <td>SERVICIO CONTRATADO</td>
+            <td>COPAGO REALIZADO</td>
             <td>VETERINARIA</td>
             <td>NOMBRE MASCOTA</td>
             <td>ESPECIE MASCOTA</td>
@@ -39,6 +40,7 @@
             <td th:text="${historial.codigo}"></td>
             <td th:text="${historial.clienteAsociado.nombre}"></td>
             <td th:text="${historial.servicioContratado.nombre}"></td>
+            <td th:text="${historial.servicioContratado.copago}"></td>
             <td th:text="${historial.veterinariaAsociada.nombre}"></td>
             <td th:text="${historial.mascotaConsulta.nombre}"></td>
             <td th:text="${historial.mascotaConsulta.especie}"></td>
